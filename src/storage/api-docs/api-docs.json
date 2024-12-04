@@ -1,0 +1,385 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "We Rent API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/guests": {
+            "get": {
+                "tags": [
+                    "Guest"
+                ],
+                "summary": "Вывести список всех гостей",
+                "operationId": "435d3ce24ca5db2d5df2bf59153fbc2b",
+                "responses": {
+                    "200": {
+                        "description": "Готово",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "first_name": {
+                                                        "type": "string",
+                                                        "example": "Ivan"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string",
+                                                        "example": "Ivanov"
+                                                    },
+                                                    "phone": {
+                                                        "type": "string",
+                                                        "example": "+7-960-399-17-11"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "test@mail.ru"
+                                                    },
+                                                    "country": {
+                                                        "type": "string",
+                                                        "example": "Russia"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2024-11-14T14:53:10.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2023-11-14T14:53:10.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Guest"
+                ],
+                "summary": "Добавить нового гостя",
+                "operationId": "a33fc4a41fbcbd8f674541dad9474b6a",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "first_name": {
+                                                "type": "string",
+                                                "example": "Ivan"
+                                            },
+                                            "last_name": {
+                                                "type": "string",
+                                                "example": "Ivanov"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "example": "+7-960-399-17-11"
+                                            },
+                                            "email": {
+                                                "type": "email",
+                                                "example": "test@mail.ru"
+                                            },
+                                            "country": {
+                                                "type": "string",
+                                                "example": "Russia"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Запись успешно создана",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "first_name": {
+                                                    "type": "string",
+                                                    "example": "Ivan"
+                                                },
+                                                "last_name": {
+                                                    "type": "string",
+                                                    "example": "Ivanov"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+7-960-399-17-11"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@mail.ru"
+                                                },
+                                                "country": {
+                                                    "type": "string",
+                                                    "example": "Russia"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-11-14T14:53:10.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2023-11-14T14:53:10.000000Z"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/guests/{guest}": {
+            "get": {
+                "tags": [
+                    "Guest"
+                ],
+                "summary": "Вывести гостя по ID",
+                "operationId": "b8752155887db792d433506e766442a2",
+                "parameters": [
+                    {
+                        "name": "guest",
+                        "in": "path",
+                        "description": "Guest ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный вывод гостя",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "content": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "first_name": {
+                                                    "type": "string",
+                                                    "example": "Ivan"
+                                                },
+                                                "last_name": {
+                                                    "type": "string",
+                                                    "example": "Ivanov"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+7-960-399-17-11"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@mail.ru"
+                                                },
+                                                "country": {
+                                                    "type": "string",
+                                                    "example": "Russia"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-11-14T14:53:10.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2023-11-14T14:53:10.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Guest"
+                ],
+                "summary": "Обновить информацию о госте",
+                "operationId": "b7a864ffdde1130d27420c63b971f57a",
+                "parameters": [
+                    {
+                        "name": "guest",
+                        "in": "path",
+                        "description": "Guest ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "first_name": {
+                                                "type": "string",
+                                                "example": "Ivan"
+                                            },
+                                            "last_name": {
+                                                "type": "string",
+                                                "example": "Ivanov"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "example": "+7-960-399-17-11"
+                                            },
+                                            "email": {
+                                                "type": "email",
+                                                "example": "test@mail.ru"
+                                            },
+                                            "country": {
+                                                "type": "string",
+                                                "example": "Russia"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Запись успешно обновлена",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "first_name": {
+                                                    "type": "string",
+                                                    "example": "Ivan"
+                                                },
+                                                "last_name": {
+                                                    "type": "string",
+                                                    "example": "Ivanov"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "example": "+7-960-399-17-11"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@mail.ru"
+                                                },
+                                                "country": {
+                                                    "type": "string",
+                                                    "example": "Russia"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-11-14T14:53:10.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2023-11-14T14:53:10.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Guest"
+                ],
+                "summary": "Удалить гостя",
+                "operationId": "5483ecf183c69807357dba626bdf6205",
+                "parameters": [
+                    {
+                        "name": "guest",
+                        "in": "path",
+                        "description": "Guest ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Запись успешно удалена",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Запись успешно удалена"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Guest",
+            "description": "Guest"
+        }
+    ]
+}
