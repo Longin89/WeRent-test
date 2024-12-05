@@ -37,7 +37,7 @@ use App\Http\Controllers\Controller;
  *            ),
  *
  * @OA\Response(
- *      response=201,
+ *      response=200,
  *      description="Запись успешно создана",
  *      @OA\JsonContent(
  *      @OA\Property(property="data", type="object",

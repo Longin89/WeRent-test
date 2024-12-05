@@ -13,7 +13,7 @@ class DebugInfoService
         $executionTime = microtime(true) - LARAVEL_START;
 
         return [
-            'X-Debug-Time' => round($executionTime, 1), // Вывод в сек.
+            'X-Debug-Time' => round($executionTime * 1000), // Вывод в мс.
             'X-Debug-Memory' => round($memoryUsage, 1), // Вывод в кб.
         ];
     }

@@ -112,7 +112,7 @@
                     }
                 },
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Запись успешно создана",
                         "content": {
                             "application/json": {
